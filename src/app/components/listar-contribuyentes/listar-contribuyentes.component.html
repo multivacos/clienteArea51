@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">Listado de Contribuyentes 2021</span>
+                    <button class="btn btn-primary float-end" routerLink="/crear-contribuyente">Agregar</button>
+                    <table class="table table-bordered table-hover mt-4">
+                        <thead>
+                            <tr class="table-dark">
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellidos</th>
+                                <th scope="col">Direccion</th>
+                                <th scope="col">DNI</th>
+                                <th scope="col">Sueldo base</th>
+                                <th scope="col">Acciones</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let contribuyente of listContrib">
+                                <td>{{contribuyente.nombre}}</td>
+                                <td>{{contribuyente.apellidos}}</td>
+                                <td>{{contribuyente.numDni}}</td>
+                                <td>{{contribuyente.direccion}}</td>
+                                <td>{{contribuyente.sueldoBase | currency: 'USD'}}</td>
+                                <td>
+                                    <i [routerLink]="['/editar-contribuyente', contribuyente._id]" class="fas fa-edit text-primary"></i>
+                                    <i (click)="delContrib(contribuyente._id)" class="fas fa-trash-alt text-danger"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h5 style="text-align: start; margin-top: 10px;" *ngIf="listContrib.length == 0">No hay productos para mostrar</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
