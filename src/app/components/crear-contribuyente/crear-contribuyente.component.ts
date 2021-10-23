@@ -66,7 +66,7 @@ export class CrearContribuyenteComponent implements OnInit {
 
   esEditar() {
     if (this.id !== null) {
-      this.tituloForm = 'Editar producto';
+      this.tituloForm = 'Editar Contribuyente';
       this._contribuyenteService.getContribOne(this.id).subscribe(data => {
         this.contribuyenteForm.setValue({
           nombre: data.nombre,
